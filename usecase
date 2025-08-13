@@ -1,0 +1,176 @@
+# Use Case Diagram - Algorithm Visualizer (algoV)
+
+## UML Use Case Diagram
+
+```mermaid
+graph TB
+    %% Actors
+    Student[👨‍🎓 Student]
+    Educator[👨‍🏫 Educator]
+    Developer[👨‍💻 Developer]
+    System[🖥️ System]
+    
+    %% Use Cases
+    UC1[Select Algorithm]
+    UC2[Execute Bubble Sort]
+    UC3[Execute Binary Search]
+    UC4[Analyze Space Complexity]
+    UC5[View Algorithm List]
+    UC6[Input Custom Data]
+    UC7[View Execution Results]
+    UC8[Access API Endpoints]
+    UC9[View Complexity Analysis]
+    UC10[Monitor System Health]
+    
+    %% Relationships
+    Student --> UC1
+    Student --> UC2
+    Student --> UC3
+    Student --> UC4
+    Student --> UC5
+    Student --> UC6
+    Student --> UC7
+    Student --> UC9
+    
+    Educator --> UC1
+    Educator --> UC2
+    Educator --> UC3
+    Educator --> UC4
+    Educator --> UC5
+    Educator --> UC6
+    Educator --> UC7
+    Educator --> UC9
+    
+    Developer --> UC8
+    Developer --> UC10
+    
+    System --> UC10
+    
+    %% Include/Extend Relationships
+    UC1 -.->|<<include>> UC5
+    UC2 -.->|<<include>> UC6
+    UC2 -.->|<<include>> UC7
+    UC2 -.->|<<include>> UC9
+    UC3 -.->|<<include>> UC6
+    UC3 -.->|<<include>> UC7
+    UC3 -.->|<<include>> UC9
+    UC4 -.->|<<include>> UC7
+    UC4 -.->|<<include>> UC9
+    UC6 -.->|<<include>> UC7
+```
+
+## Textual Description
+
+### Actors:
+1. **Student** - Primary user learning algorithms
+2. **Educator** - Teacher demonstrating algorithms in classroom
+3. **Developer** - Software developer integrating with API
+4. **System** - Automated system processes
+
+### Use Cases:
+
+#### Core Algorithm Operations:
+- **UC1: Select Algorithm** - Choose algorithm to execute
+- **UC2: Execute Bubble Sort** - Run bubble sort with custom data
+- **UC3: Execute Binary Search** - Perform binary search operation
+- **UC4: Analyze Space Complexity** - Compare space usage of algorithms
+
+#### Information & Display:
+- **UC5: View Algorithm List** - See available algorithms
+- **UC6: Input Custom Data** - Provide custom input arrays/values
+- **UC7: View Execution Results** - See algorithm output and performance
+- **UC9: View Complexity Analysis** - Understand time/space complexity
+
+#### Technical Operations:
+- **UC8: Access API Endpoints** - Use REST API for integration
+- **UC10: Monitor System Health** - Check system status
+
+### Relationships:
+- **Include** relationships show mandatory dependencies
+- **Extend** relationships show optional extensions
+- All algorithm executions include data input, result display, and complexity analysis
+- Algorithm selection includes viewing the algorithm list
+
+## Alternative UML Notation (PlantUML)
+
+```plantuml
+@startuml AlgorithmVisualizer
+left to right direction
+skinparam packageStyle rectangle
+
+actor Student as S
+actor Educator as E
+actor Developer as D
+actor System as Sys
+
+rectangle "Algorithm Visualizer System" {
+  usecase "Select Algorithm" as UC1
+  usecase "Execute Bubble Sort" as UC2
+  usecase "Execute Binary Search" as UC3
+  usecase "Analyze Space Complexity" as UC4
+  usecase "View Algorithm List" as UC5
+  usecase "Input Custom Data" as UC6
+  usecase "View Execution Results" as UC7
+  usecase "Access API Endpoints" as UC8
+  usecase "View Complexity Analysis" as UC9
+  usecase "Monitor System Health" as UC10
+}
+
+S --> UC1
+S --> UC2
+S --> UC3
+S --> UC4
+S --> UC5
+S --> UC6
+S --> UC7
+S --> UC9
+
+E --> UC1
+E --> UC2
+E --> UC3
+E --> UC4
+E --> UC5
+E --> UC6
+E --> UC7
+E --> UC9
+
+D --> UC8
+D --> UC10
+
+Sys --> UC10
+
+UC1 ..> UC5 : <<include>>
+UC2 ..> UC6 : <<include>>
+UC2 ..> UC7 : <<include>>
+UC2 ..> UC9 : <<include>>
+UC3 ..> UC6 : <<include>>
+UC3 ..> UC7 : <<include>>
+UC3 ..> UC9 : <<include>>
+UC4 ..> UC7 : <<include>>
+UC4 ..> UC9 : <<include>>
+UC6 ..> UC7 : <<include>>
+
+@enduml
+```
+
+## Key Use Case Scenarios:
+
+### 1. **Student Learning Algorithm (Primary Path)**
+1. Student selects algorithm from list
+2. Student inputs custom data
+3. System executes algorithm
+4. Student views results and complexity analysis
+
+### 2. **Educator Demonstrating Algorithm**
+1. Educator selects algorithm for demonstration
+2. Educator uses default or custom data
+3. System shows step-by-step execution
+4. Educator explains complexity concepts
+
+### 3. **Developer API Integration**
+1. Developer accesses API endpoints
+2. Developer sends algorithm requests
+3. System processes and returns results
+4. Developer integrates results into external systems
+
+This Use Case Diagram captures the core functionality of your Algorithm Visualizer system and shows how different user types interact with the various features.
